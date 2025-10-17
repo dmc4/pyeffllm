@@ -10,9 +10,9 @@ from dotenv import load_dotenv
 from openai import pydantic_function_tool
 from pydantic import BaseModel, Field
 
-from coop import AsyncHandler, async_, await_
-from eff import Handler, Operation, coroutine_decorator
-from llm import (
+from src.coop import AsyncHandler, async_, await_
+from src.eff import Handler, Operation, coroutine_decorator
+from src.llm import (
 	AsyncChatHandler,
 	AsyncReplayLLMHandler,
 	ChatHandler,
@@ -22,7 +22,7 @@ from llm import (
 	addmsg,
 	complete,
 )
-from util import Timer, awaitable_args_decorator
+from src.util import Timer, awaitable_args_decorator
 
 load_dotenv()
 

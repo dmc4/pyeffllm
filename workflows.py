@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 from openai import pydantic_function_tool
 from pydantic import BaseModel, Field
 
-from coop import AsyncHandler, async_, coroutine_decorator
-from llm import (
+from src.coop import AsyncHandler, async_, coroutine_decorator
+from src.llm import (
 	AsyncLLMHandler,
 	AsyncOneRoundChatHandler,
 	ChatHandler,

@@ -5,9 +5,9 @@ import pickle
 from dotenv import load_dotenv
 from pydantic import BaseModel
 
-from coop import AsyncHandler, async_
-from eff import Handler, coroutine_decorator
-from llm import (
+from src.coop import AsyncHandler, async_
+from src.eff import Handler, coroutine_decorator
+from src.llm import (
 	AsyncOneRoundChatHandler,
 	AsyncReplayLLMHandler,
 	LLMHandler,
@@ -17,7 +17,7 @@ from llm import (
 	parse,
 )
 from tree_of_thoughts import beam_search, expand, get_init, score
-from util import Timer, awaitable_args_decorator
+from src.util import Timer, awaitable_args_decorator
 
 load_dotenv()
 

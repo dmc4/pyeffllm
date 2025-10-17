@@ -1,7 +1,7 @@
 from itertools import chain
 from typing import Callable, TypeVar
 
-from eff import Operation
+from src.eff import Operation
 
 _T = TypeVar("T")
 
