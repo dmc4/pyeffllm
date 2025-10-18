@@ -8,8 +8,8 @@ from openai import AsyncOpenAI, OpenAI, RateLimitError
 from openai.types.chat import ChatCompletion, ParsedChatCompletion
 from pydantic import BaseModel
 
-from coop import async_
-from eff import Handler, Operation, coroutine_decorator
+from src.coop import async_
+from src.eff import Handler, Operation, coroutine_decorator
 
 _M = TypeVar("M", bound=BaseModel)
 

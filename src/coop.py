@@ -1,7 +1,7 @@
 import asyncio
 from typing import Any, Awaitable, Callable, Coroutine, TypeVar
 
-from eff import Handler, Operation, coroutine_decorator
+from src.eff import Handler, Operation, coroutine_decorator
 
 _T = TypeVar("T")
 _R = TypeVar("R")
