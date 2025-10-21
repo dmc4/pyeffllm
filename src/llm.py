@@ -179,22 +179,25 @@ class ReplayLLMHandler(Handler):
 	forward:
 	"""
 
-	def __init__(self, trace):
+	def __init__(self, trace, no_sleep):
 		super().__init__()
 		self.trace = trace
+		self.no_sleep = no_sleep
 		self.register(complete_kw, self.complete_kw)
 		self.register(parse_kw, self.parse_kw)
 
 	def complete_kw(self, id: str, chat_kwargs: dict) -> ChatCompletion:
 		response, response_time = self.trace[id].popleft()
-		time.sleep(response_time)
+		if self.no_sleep == False:
+			time.sleep(response_time)
 		return ChatCompletion.model_validate_json(response)
 
 	def parse_kw(
 		self, id: str, chat_kwargs: dict, schema: type[_M]
 	) -> ParsedChatCompletion[_M]:
 		response, response_time = self.trace[id].popleft()
-		time.sleep(response_time)
+		if self.no_sleep == False:
+			time.sleep(response_time)
 		return ParsedChatCompletion[schema].model_validate_json(response)
 
 
